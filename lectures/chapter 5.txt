@@ -1,0 +1,13 @@
+-- Chapter 5
+
+grid :: (Num a, Num b, Enum a, Enum b) => a -> b -> [(a, b)]
+grid n m = [(a, b) | a <- [0..n], b <- [0..m]]
+
+square :: (Num a, Enum a, Eq a) => a -> [(a, a)] 
+square n = [(a, b) | a <- [0..n], b <- [0..n], a /= b]
+
+square' :: (Num a, Enum a, Eq a) => a -> [(a, a)] 
+square' n = [(a, b) | (a, b) <- grid n n, a /= b]
+
+factors :: Int -> [Int]
+factors n = [x | x <- [1..n], n `mod` x == 0 Prelude.&& n /= x]

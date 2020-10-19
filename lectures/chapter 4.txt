@@ -1,0 +1,17 @@
+third' xs = head (tail (tail xs))
+
+third'' xs = xs !! 2
+
+third''' :: [a] -> a
+third''' (_:_:x:_) = x
+
+safetail :: [a] -> [a]
+safetail xs = if null xs then [] else tail xs
+
+safetail' :: [a] -> [a]
+safetail' xs  | null xs = []
+              | otherwise = xs
+
+safetail'' :: [a] -> [a]
+safetail'' [] = []
+safetail'' (_:xs) = xs

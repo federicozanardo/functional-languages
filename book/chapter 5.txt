@@ -1,0 +1,21 @@
+-- Chapter 5
+
+-- Ex. 1
+sumOfSquares :: Integer
+sumOfSquares = sum [x^2 | x <- [1..100]]
+
+-- Ex. 2
+replicate :: Int -> a -> [a]
+replicate n b = [b | x <- [0..(n-1)]]
+
+-- Ex. 3
+pythagoreanTriples :: (Num a, Enum a, Eq a) => a -> [(a, a, a)]
+pythagoreanTriples n = [(x,y,z) | x <- [1..n], y <- [1..n], z <- [1..n], x^2 + y^2 == z^2]
+
+-- Ex. 4
+perfect :: Int -> [Int]
+perfect n = [x | x <- [1..n], sum (factors x) == x]
+
+-- Ex. 5
+s :: [(Int, Int)]
+s = concat [[(x,y) | y <- [3,4]] | x <- [1,2]]

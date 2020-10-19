@@ -1,0 +1,32 @@
+module Main where
+
+main :: IO ()
+
+-- Chapter 7
+
+-- Ex. 2
+dropWhile' :: (a -> Bool) -> [a] -> [a]
+dropWhile' _ [] = []
+dropWhile' p (x:xs) = if p x then dropWhile' p xs else x:dropWhile' p xs
+
+-- Ex.3
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' _ [] = []
+filter' p xs = foldr (\x s -> if p x then x:s else s) [] xs
+
+-- Ex. 4
+dec2Int :: [Int] -> Int
+dec2Int = foldl (\y x -> 10 * y + x) 0
+
+-- Ex. 6
+curry' :: ((a, b) -> c) -> a -> b -> c
+curry' f x y = f (x, y)
+
+uncurry' :: (a -> b -> c) -> ((a, b) -> c)
+uncurry' f p = f (fst p) (snd p)
+
+--main = print $ dropWhile' (< 3) [1,2,3,4,5,6,7,8]
+--main = print $ dropWhile' (== ' ') "hi to everybody"
+--main = print $ filter' (< 3) [1,2,3,4,5,6,7,8]
+--main = print $ filter' (/= ' ') "hi to everybody"
+main = print $ dec2Int [2,3,4,5]

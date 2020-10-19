@@ -1,0 +1,10 @@
+-- Chapter 4
+
+-- Ex. 4
+(&&) :: Bool -> Bool -> Bool
+(&&) a b = if a == True Prelude.&& b == True then True else False
+
+-- Ex. 5
+and' :: Bool -> Bool -> Bool
+and' True b = b
+and' False _ = False 

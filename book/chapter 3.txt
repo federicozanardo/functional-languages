@@ -1,0 +1,16 @@
+-- Chapter 3
+
+-- Ex. 1
+[ ’a’, ’b’, ’c’ ] :: [Char]
+(’a’, ’b’, ’c’) :: (Char)
+[ (False , ’O’), (True , ’1’) ] :: [(Bool, Char)]
+([False,True],[’0’,’1’]) :: ([Bool], [Char])
+[ tail , init , reverse ] :: [[a] -> [a]]
+
+-- Ex. 2
+second xs = head(tail xs) :: [a] -> a
+swap(x, y) = (y, x) :: (a, b) -> (a, b)
+pair x y = (x, y) :: a -> b -> (a, b)
+double x = x * 2 :: Int a => a -> a
+palindrome xs = reverse xs == xs :: String a => a -> Bool
+twice f x = f(f x) :: (a -> a) -> a -> a
