@@ -25,6 +25,19 @@ curry' f x y = f (x, y)
 uncurry' :: (a -> b -> c) -> ((a, b) -> c)
 uncurry' f p = f (fst p) (snd p)
 
+-- Ex. 7
+unfold p h t x | p x = []
+               | otherwise = h x : unfold p h t (t x)
+
+chop8' :: [Bit] -> [[Bit]]
+chop8' = unfold (== []) (take 8) (drop 8)
+
+map' f = unfold (== []) (f.head) tail
+
+iterate' f= unfold (\x -> False) f f -- whatever the input is, it returns False
+                                            -- it should be [x, f(x), f(f(x)), ...]
+                                            -- it's [f(x), f(f(x)), ...]
+
 --main = print $ dropWhile' (< 3) [1,2,3,4,5,6,7,8]
 --main = print $ dropWhile' (== ' ') "hi to everybody"
 --main = print $ filter' (< 3) [1,2,3,4,5,6,7,8]
