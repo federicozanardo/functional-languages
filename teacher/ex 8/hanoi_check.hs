@@ -49,6 +49,3 @@ check conf n ((m1, m2):ms) =  if checkPegExistence m1 && checkPegExistence m2 &&
                                 check (checkExecution conf (m1, m2)) (n + 1) ms
                               else
                                 (Bad, n, [(m1, m2)], conf)
-
-main :: IO ()
-main = print $ check ([1,2,3,4,5], [], []) 0 [("a", "b"),("a","c"),("b","c"),("a","b"),("c","a"),("c","b"),("a","b"),("a","c"),("b","c"),("b","a"),("c","a"),("b","c"),("a","b"),("a","c"),("b","c"),("a","b"),("c","a"),("c","b"),("a","b"),("c","a"),("b","c"),("b","a"),("c","a"),("c","b"),("a","b"),("a","c"),("b","c"),("a","b"),("c","a"),("c","b"),("a","b")]
